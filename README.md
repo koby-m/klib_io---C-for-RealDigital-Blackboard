@@ -2,7 +2,7 @@ Name:
                         klib_io (written in C)
 
 Version:                
-                        1.1.0
+                        1.1.1
 
 Contributor(s):         
                         Koby Miller
