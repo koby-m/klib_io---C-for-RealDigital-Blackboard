@@ -24,9 +24,5 @@ Description:
                                 - https://www.realdigital.org/hardware/blackboard
 
 Changelog:              
-                        Added functions:
-                                - setupPmod(); (for only PMOD B at the moment)
-                                - pmodRead();
-                                - pmodWrite();
-                        Switched parameters where appropriate to 'bool' and 'byte' instead of 'unsigned int'
+								Changed iterators to 'byte' data type
 
