@@ -15,8 +15,6 @@ Description:            A library including useful functions concerning the Real
                         
                         Memory address macros were made by consulting the reference manual on the RealDigital website:
                                 - https://www.realdigital.org/hardware/blackboard
-                        
-                        Please read function descriptions for use.
 
 Changelog:              Added functions:
                                 - setupPmod(); (for only PMOD B at the moment)
