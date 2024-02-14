@@ -1,13 +1,17 @@
 /* +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 
-        Library Name:           Klib-io (for RealDigital Blackboard)
+        Library Name:           
+								Klib-io (for RealDigital Blackboard)
         
-        Version:                1.1.0 (Source file)
+        Version:                
+								1.1.1 (Source file)
 
-        Contributor(s):         Koby Miller
+        Contributor(s):         
+								Koby Miller
                                 Dr. Jacob Murray
 
-        Date last modified:     February 9th, 2024
+        Date last modified:     
+								February 14th, 2024
 
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+ */
 
@@ -157,14 +161,14 @@ void enableSevSeg(unsigned int mode) {
             Used to display data on the seven-segment display
             
         Written by Koby Miller
-        Last modified: February 9th, 2024
+        Last modified: February 14th, 2024
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+ */
 void outputToSevSeg(int val, unsigned int mode) {
     
     enableSevSeg(0); // ensure sev-seg is in number mode
 
     unsigned int disp = 0;
-    int c;
+    byte c;
 
     switch(mode) {
         default:
@@ -208,7 +212,7 @@ void outputToSevSeg(int val, unsigned int mode) {
             use the only available one.
             
         Written by Koby Miller
-        Last modified: January 30th, 2024
+        Last modified: February 14th, 2024
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+ */
 void outputToSevSegCustom(const char* str) {
     
@@ -216,7 +220,7 @@ void outputToSevSegCustom(const char* str) {
 
     unsigned int disp = 0; // what will be displayed
     unsigned int temp = 0; // stores what character to shift into sev-seg
-    int c; // iterator
+    byte c; // iterator
 
                                                                                                                 // [!] big long nasty switch-case comin' up [!]
     
@@ -442,12 +446,12 @@ void outputToLEDs(int val) {
             enableRGB(0b10) enables only second LED
             
         Written by Koby Miller
-        Last modified: January 30th, 2024
+        Last modified: February 14th, 2024
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+ */
 void enableRGB(unsigned int select) {
     
     unsigned int rgb[2] = {bitIndex(select,0),bitIndex(select,1)}; //create array regarding the bit values of 'select' variable
-    int c = 0; //iterator
+    byte c = 0; //iterator
 
     for(c = 0; c < 3;c++) {
         *((unsigned int *)(RGB_EN_BASEADDR + c * 0x10)) = rgb[0]; 
@@ -470,12 +474,12 @@ void enableRGB(unsigned int select) {
             Used to display light on RGB LEDs
             
         Written by Koby Miller
-        Last modified: February 2nd, 2024
+        Last modified: February 14th, 2024
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+ */
 void outputToRGB(unsigned int select, unsigned int color, float bright) {
     
     const unsigned int offset = select * 0x30; // offset address based on 'select' variable
-    int c = 0; // iterator
+    byte c = 0; // iterator
     
     // Mask color off to only valid HEX code
     color &= 0xFFFFFF;
