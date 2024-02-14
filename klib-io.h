@@ -1,15 +1,20 @@
 /* +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 
-        Library Name:           Klib-io (for RealDigital Blackboard)
+        Library Name:           
+								Klib-io (for RealDigital Blackboard)
                                 
-        Version:                1.1.0 (Header file)
+        Version:                
+								1.1.1 (Header file)
 
-        Contributor(s):         Koby Miller
+        Contributor(s):         
+								Koby Miller
                                 Dr. Jacob Murray
 
-        Date last modified:     February 9th, 2024
+        Date last modified:     
+								February 14th, 2024
 
-        Description:            A library including useful functions concerning the RealDigital Blackboard, such as functions to use
+        Description:            
+								A library including useful functions concerning the RealDigital Blackboard, such as functions to use
                                 on-board GPIO devices:
                                         - LEDs
                                         - Buttons
@@ -22,11 +27,8 @@
                                 
                                 Please read function descriptions below for use.
 
-        Changelog:              Added functions:
-                                        - setupPmod(); (for only PMOD B at the moment)
-                                        - pmodRead();
-                                        - pmodWrite();
-                                Switched parameters where appropriate to 'bool' and 'byte' instead of 'unsigned int'
+        Changelog:              
+								Changed iterators to 'byte' data type
 
 
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+ */
