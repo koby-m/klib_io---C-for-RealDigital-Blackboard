@@ -4,14 +4,14 @@
 								Klib-io (for RealDigital Blackboard)
                                 
         Version:                
-								1.1.1 (Header file)
+								1.1.2 (Header file)
 
         Contributor(s):         
 								Koby Miller
                                 Dr. Jacob Murray
 
         Date last modified:     
-								February 14th, 2024
+								February 15th, 2024
 
         Description:            
 								A library including useful functions concerning the RealDigital Blackboard, such as functions to use
@@ -28,7 +28,9 @@
                                 Please read function descriptions below for use.
 
         Changelog:              
-								Changed iterators to 'byte' data type
+								Added SEVSEG_CHAR_UNDERSCORE character support
+                                Changed mode parameter for outputToSevSeg(); to byte to support binary display mode
+
 
 
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+ */
@@ -115,6 +117,7 @@
     #define SEVSEG_CHAR_9 0b0010000
     #define SEVSEG_CHAR_DASH 0b0111111
     #define SEVSEG_CHAR_EQUAL 0b0110111
+    #define SEVSEG_CHAR_UNDERSCORE 0b1110111
 
 /* +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
     LEDs
@@ -246,13 +249,13 @@ void enableSevSeg(unsigned int mode);
         outputToSevSeg();
 		
         int val                 Value to push to the seven-segment display
-        unsigned int mode       Display mode. 0-hexadecimal, 1-decimal
+        byte mode               Display mode. 0-hexadecimal, 1-decimal, 2-binary
             
             Used to display data on the seven-segment display
             
         Written by Koby Miller
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+ */
-void outputToSevSeg(int val, unsigned int mode);
+void outputToSevSeg(int val, byte mode);
 
 /* +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
         outputToSevSegCustom();

@@ -4,14 +4,14 @@
 								Klib-io (for RealDigital Blackboard)
         
         Version:                
-								1.1.1 (Source file)
+								1.1.2 (Source file)
 
         Contributor(s):         
 								Koby Miller
                                 Dr. Jacob Murray
 
         Date last modified:     
-								February 14th, 2024
+								February 15th, 2024
 
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+ */
 
@@ -156,14 +156,14 @@ void enableSevSeg(unsigned int mode) {
         outputToSevSeg();
 		
         int val                 Value to push to the seven-segment display
-        unsigned int mode       Display mode. 0-hexadecimal, 1-decimal
+        byte mode               Display mode. 0-hexadecimal, 1-decimal, 2-binary
             
             Used to display data on the seven-segment display
             
         Written by Koby Miller
         Last modified: February 14th, 2024
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+ */
-void outputToSevSeg(int val, unsigned int mode) {
+void outputToSevSeg(int val, byte mode) {
     
     enableSevSeg(0); // ensure sev-seg is in number mode
 
@@ -185,8 +185,17 @@ void outputToSevSeg(int val, unsigned int mode) {
         case 1: //decimal
         
             for(c = 0; c < 4;c++) {
-                disp |= (val % 10) << (c*8); // Extract and store ones digit to temporary variable
+                disp |= (val % 10) << (c * 8); // Extract and store ones digit to temporary variable
                 val = val / 10;    // Remove ones digit
+            }
+            
+            break;
+        case 2: //binary
+            
+            for(c = 0; c < 4; c++)
+            {
+                disp |= (val & 1) << (c * 8); // Shift over bits based on digit of display
+                val >>= 1; // Shift out least significant digit (divide by 2^4)
             }
             
             break;
@@ -397,6 +406,10 @@ void outputToSevSegCustom(const char* str) {
                 
             case '=':
                 temp = SEVSEG_CHAR_EQUAL;
+                break;
+                
+            case '_':
+                temp = SEVSEG_CHAR_UNDERSCORE;
                 break;
 
             default:
