@@ -14,13 +14,13 @@ February 15th, 2024
 **Description:**           
 A library including useful functions concerning the RealDigital Blackboard, such as functions to use
 on-board GPIO devices:<br>
-	- LEDs<br>
-	- Buttons<br>
-	- Switches<br>
-	- RGB LEDs<br>
-	- Seven-segment display<br>
-Memory address macros were made by consulting the reference manual on the RealDigital website:<br>
-	- https://www.realdigital.org/hardware/blackboard
+- LEDs<br>
+- Buttons<br>
+- Switches<br>
+- RGB LEDs<br>
+- Seven-segment display<br>
+_Memory address macros were made by consulting the reference manual on the RealDigital website:_<br>
+https://www.realdigital.org/hardware/blackboard
 
 **Changelog:**             
 Added SEVSEG_CHAR_UNDERSCORE character support<br>
