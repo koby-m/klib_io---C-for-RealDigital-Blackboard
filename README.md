@@ -5,7 +5,7 @@ Version:
                         1.1.1
 
 Contributor(s):         
-                        Koby Miller
+                        Koby Miller,
                         Dr. Jacob Murray
 
 Date last modified:     
